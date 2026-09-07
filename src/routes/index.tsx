@@ -21,7 +21,7 @@ import {
 
 import heroImg from "@/assets/hero-warehouse.jpg";
 import mapImg from "@/assets/map-benghazi.jpg";
-import logoAsset from "@/assets/libyan-road-logo.png.asset.json";
+import transparentLogo from "@/assets/libyan-road-logo-transparent.png";
 
 
 export const Route = createFileRoute("/")({
@@ -134,13 +134,19 @@ const STATS = [
 
 function Logo() {
   return (
-    <a href="#home" className="flex min-w-0 items-center" aria-label="Libyan Road Company home">
+    <a
+      href="#home"
+      className="group relative flex h-14 w-[7.25rem] shrink-0 items-center justify-center overflow-hidden rounded-sm border border-border bg-card px-2 py-1 shadow-sm sm:w-32"
+      aria-label="Libyan Road Company home"
+    >
+      <span className="absolute inset-y-0 left-0 w-1 bg-steel" aria-hidden="true" />
+      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-accent" aria-hidden="true" />
       <img
-        src={logoAsset.url}
+        src={transparentLogo}
         alt="Libyan Road Company logo"
-        width={730}
-        height={450}
-        className="h-12 w-auto object-contain sm:h-14"
+        width={910}
+        height={571}
+        className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
       />
     </a>
   );
@@ -693,14 +699,16 @@ function Footer() {
       <div className="road-line h-0.5 w-full opacity-70" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="inline-block rounded-sm bg-background p-3">
+          <div className="relative inline-flex w-48 items-center justify-center overflow-hidden rounded-sm border border-steel/45 bg-navy-foreground px-4 py-3 shadow-lg">
+            <span className="absolute inset-y-0 left-0 w-1 bg-steel" aria-hidden="true" />
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-accent" aria-hidden="true" />
             <img
-              src={logoAsset.url}
+              src={transparentLogo}
               alt="Libyan Road Company logo"
-              width={730}
-              height={450}
+              width={910}
+              height={571}
               loading="lazy"
-              className="h-16 w-auto object-contain"
+              className="h-24 w-full object-contain"
             />
           </div>
 
