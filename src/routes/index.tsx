@@ -693,14 +693,17 @@ function Footer() {
       <div className="road-line h-0.5 w-full opacity-70" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="grid size-9 shrink-0 place-items-center rounded-sm bg-accent">
-              <Truck className="size-5 text-accent-foreground" />
-            </span>
-            <span className="font-display text-lg font-bold tracking-wide uppercase">
-              Libyan Road Company
-            </span>
+          <div className="inline-block rounded-sm bg-background p-3">
+            <img
+              src={logoAsset.url}
+              alt="Libyan Road Company logo"
+              width={730}
+              height={450}
+              loading="lazy"
+              className="h-16 w-auto object-contain"
+            />
           </div>
+
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-foreground/65">
             Importer and wholesale distributor of automotive spare parts, tires, batteries and
             lubricants, serving Benghazi and all of Libya since 2008.
