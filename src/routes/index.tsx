@@ -184,13 +184,6 @@ function Header() {
         </nav>
         <div className="flex shrink-0 items-center gap-2">
           <a
-            href="tel:+218912345678"
-            className="hidden items-center gap-2 text-sm font-semibold text-foreground md:inline-flex"
-          >
-            <Phone className="size-4 text-accent" />
-            +218 91 234 5678
-          </a>
-          <a
             href="#contact"
             className="hidden rounded-sm bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 sm:inline-block"
           >
@@ -508,9 +501,8 @@ function Rfq() {
           />
           <ul className="mt-8 space-y-4">
             {[
-              { icon: Phone, label: "Sales", value: "+218 91 234 5678" },
               { icon: Mail, label: "Email", value: "sales@libyanroad.ly" },
-              { icon: MapPin, label: "Warehouse", value: "Al Nahr Road, Benghazi, Libya" },
+              { icon: MapPin, label: "Warehouse", value: "Benghazi, Libya" },
               { icon: Clock, label: "Hours", value: "Sat–Thu, 08:00 – 18:00" },
             ].map((c) => (
               <li key={c.label} className="flex items-start gap-3">
@@ -558,7 +550,7 @@ function Rfq() {
                 </label>
                 <input id="company" name="company" className={field} placeholder="Garage or store" />
               </div>
-              <div>
+              <div className="sm:col-span-2">
                 <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
                   Email
                 </label>
@@ -569,19 +561,6 @@ function Rfq() {
                   required
                   className={field}
                   placeholder="you@company.ly"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
-                  Phone
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  className={field}
-                  placeholder="+218 …"
                 />
               </div>
               <div className="sm:col-span-2">
@@ -636,7 +615,7 @@ function Location() {
       <SectionHeading
         eyebrow="Find Us"
         title="Benghazi warehouse & trade counter"
-        text="Loading bays open onto Al Nahr Road with parking for pickups and light trucks. Collections welcome without an appointment."
+        text="Our Benghazi loading bays are open for pickups and light trucks. Collections welcome without an appointment."
       />
       <div className="mt-10 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <div className="relative overflow-hidden rounded-sm border border-border">
@@ -655,7 +634,7 @@ function Location() {
           </div>
           <div className="absolute bottom-4 left-4 rounded-sm bg-background/95 px-4 py-3 backdrop-blur">
             <p className="font-display text-base font-semibold uppercase">Libyan Road Company</p>
-            <p className="text-xs text-muted-foreground">Al Nahr Road, Benghazi</p>
+            <p className="text-xs text-muted-foreground">Benghazi, Libya</p>
           </div>
         </div>
         <div className="rounded-sm border border-border bg-card p-6 sm:p-8">
@@ -663,7 +642,7 @@ function Location() {
           <dl className="mt-5 space-y-4 text-sm">
             <div>
               <dt className="text-xs tracking-widest text-muted-foreground uppercase">Address</dt>
-              <dd className="mt-1 font-medium">Al Nahr Road, Industrial District, Benghazi, Libya</dd>
+              <dd className="mt-1 font-medium">Benghazi, Libya</dd>
             </div>
             <div>
               <dt className="text-xs tracking-widest text-muted-foreground uppercase">
@@ -680,12 +659,6 @@ function Location() {
               </dd>
             </div>
           </dl>
-          <a
-            href="tel:+218912345678"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            <Phone className="size-4" /> Call the trade desk
-          </a>
         </div>
       </div>
     </section>
@@ -713,7 +686,7 @@ function Footer() {
 
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-navy-foreground/65">
             Importer and wholesale distributor of automotive spare parts, tires, batteries and
-            lubricants, serving Benghazi and all of Libya since 2008.
+            lubricants, serving Benghazi and all of Libya.
           </p>
         </div>
         <div>
@@ -732,16 +705,11 @@ function Footer() {
           <h3 className="font-display text-sm tracking-widest uppercase">Contact</h3>
           <ul className="mt-4 space-y-2.5 text-sm text-navy-foreground/70">
             <li>
-              <a href="tel:+218912345678" className="hover:text-accent">
-                +218 91 234 5678
-              </a>
-            </li>
-            <li>
               <a href="mailto:sales@libyanroad.ly" className="hover:text-accent">
                 sales@libyanroad.ly
               </a>
             </li>
-            <li>Al Nahr Road, Benghazi</li>
+            <li>Benghazi, Libya</li>
             <li>Sat – Thu, 08:00 – 18:00</li>
           </ul>
         </div>
