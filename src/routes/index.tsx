@@ -132,21 +132,18 @@ const STATS = [
 
 function Logo() {
   return (
-    <a href="#home" className="flex min-w-0 items-center gap-2.5">
-      <span className="grid size-9 shrink-0 place-items-center rounded-sm bg-accent">
-        <Truck className="size-5 text-accent-foreground" strokeWidth={2.2} />
-      </span>
-      <span className="min-w-0 leading-none">
-        <span className="block truncate font-display text-lg font-700 tracking-wide uppercase">
-          Libyan Road
-        </span>
-        <span className="block truncate text-[0.65rem] tracking-[0.22em] text-muted-foreground uppercase">
-          Company
-        </span>
-      </span>
+    <a href="#home" className="flex min-w-0 items-center" aria-label="Libyan Road Company home">
+      <img
+        src={logoAsset.url}
+        alt="Libyan Road Company logo"
+        width={730}
+        height={450}
+        className="h-12 w-auto object-contain sm:h-14"
+      />
     </a>
   );
 }
+
 
 function Header() {
   const [open, setOpen] = useState(false);
