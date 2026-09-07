@@ -149,8 +149,41 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
   }
 }
+
+/* Road centre-line motif */
+@utility road-line {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-accent) 0 2.5rem,
+    transparent 2.5rem 5rem
+  );
+}
+
+/* Tire-tread motif */
+@utility tread {
+  background-image: repeating-linear-gradient(
+    115deg,
+    color-mix(in oklab, var(--color-steel) 22%, transparent) 0 6px,
+    transparent 6px 20px
+  );
+}
+
