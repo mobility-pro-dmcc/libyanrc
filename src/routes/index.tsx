@@ -21,6 +21,8 @@ import {
 
 import heroImg from "@/assets/hero-warehouse.jpg";
 import mapImg from "@/assets/map-benghazi.jpg";
+import logoAsset from "@/assets/libyan-road-logo.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
