@@ -3,7 +3,6 @@ import { useEffect, useState, type FormEvent } from "react";
 import {
   Menu,
   X,
-  Phone,
   Mail,
   MapPin,
   Clock,
@@ -126,7 +125,7 @@ const STANDARDS = [
 ];
 
 const STATS = [
-  { value: "18+", label: "Years in the trade" },
+  { value: "4", label: "Core product lines" },
   { value: "12,000+", label: "Parts SKUs in stock" },
   { value: "600+", label: "Trade customers" },
   { value: "6", label: "Cities served weekly" },
@@ -250,7 +249,7 @@ function Hero() {
       <div className="tread absolute inset-0 -z-10 opacity-40" />
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
         <p className="inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/10 px-3 py-1.5 text-xs font-semibold tracking-[0.18em] text-accent uppercase">
-          Benghazi · Since 2008
+          Benghazi, Libya
         </p>
         <h1 className="mt-6 max-w-3xl font-display text-4xl leading-[1.05] font-bold text-navy-foreground uppercase sm:text-6xl lg:text-7xl">
           Keeping Libya&apos;s
@@ -332,7 +331,7 @@ function About() {
           <SectionHeading
             eyebrow="About Us"
             title="A supply partner built for Libyan workshops"
-            text="Founded in Benghazi in 2008, Libyan Road Company began as a single parts counter on Al Nahr Road. Today we operate a 4,000 m² import and distribution warehouse serving repair shops, fleet operators, government workshops and retail stores across eastern and southern Libya."
+            text="Based in Benghazi, Libyan Road Company is a wholesale import and distribution business serving repair shops, fleet operators, government workshops and retail stores across eastern and southern Libya."
           />
           <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
             Our buying team works directly with manufacturers and authorised exporters, clearing our
