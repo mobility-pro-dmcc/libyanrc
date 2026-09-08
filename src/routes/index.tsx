@@ -6,6 +6,7 @@ import {
   Mail,
   MapPin,
   Clock,
+  Phone,
   Truck,
   Warehouse,
   ShieldCheck,
@@ -151,6 +152,43 @@ function Logo() {
   );
 }
 
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5-1.34A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.66 0-3.22-.52-4.51-1.42l-.32-.21-2.97.79.79-2.89-.21-.33A8.01 8.01 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8zm4.36-5.92c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.65-.14-.24-.02-.37.1-.49.12-.12.24-.3.36-.45.12-.15.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.29-.74-1.76-.2-.46-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.59 4.1 3.64.58.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.42-.58 1.62-1.08.2-.5.2-.92.14-1.08-.06-.16-.22-.24-.46-.36z" />
+    </svg>
+  );
+}
+
+function TopBar() {
+  return (
+    <div className="fixed inset-x-0 top-0 z-50 hidden h-9 items-center border-b border-navy-foreground/10 bg-navy text-navy-foreground sm:flex">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 text-xs sm:px-6">
+        <div className="flex items-center gap-4">
+          <a href="mailto:info@libyanrc.com" className="flex items-center gap-1.5 hover:text-accent">
+            <Mail className="size-3.5" /> info@libyanrc.com
+          </a>
+          <span className="flex items-center gap-1.5 text-navy-foreground/70">
+            <Clock className="size-3.5" /> Sat–Thu 08:00–18:00
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <a href="tel:+218942143587" className="flex items-center gap-1.5 hover:text-accent">
+            <Phone className="size-3.5" /> +218 94 214 3587
+          </a>
+          <a
+            href="https://wa.me/218942143587"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-green-400 hover:text-green-300"
+          >
+            <WhatsAppIcon className="size-3.5" /> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -164,73 +202,102 @@ function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all ${
-        scrolled ? "border-b border-border bg-background/95 backdrop-blur" : "bg-background"
-      }`}
-    >
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto]">
-        <Logo />
-        <nav className="hidden justify-center gap-7 lg:flex">
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="flex shrink-0 items-center gap-2">
-          <a
-            href="#contact"
-            className="hidden rounded-sm bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 sm:inline-block"
-          >
-            Request a Quote
-          </a>
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-sm border border-border lg:hidden"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </div>
-      </div>
-      {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+    <>
+      <TopBar />
+      <header
+        className={`fixed inset-x-0 top-9 z-40 transition-all ${
+          scrolled ? "border-b border-border bg-background/95 backdrop-blur" : "bg-background"
+        }`}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto]">
+          <Logo />
+          <nav className="hidden justify-center gap-7 lg:flex">
             {NAV.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-3 text-sm font-medium last:border-0"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </a>
             ))}
+          </nav>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href="tel:+218942143587"
+              className="hidden items-center gap-1.5 rounded-sm border border-border px-3 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary lg:inline-flex"
+              aria-label="Call us"
+            >
+              <Phone className="size-4" />
+              <span className="hidden xl:inline">+218 94 214 3587</span>
+            </a>
             <a
               href="#contact"
-              onClick={() => setOpen(false)}
-              className="my-3 rounded-sm bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
+              className="hidden rounded-sm bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 sm:inline-block"
             >
               Request a Quote
             </a>
-          </nav>
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="grid size-10 place-items-center rounded-sm border border-border lg:hidden"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
-      )}
-      <div className="road-line h-0.5 w-full opacity-70" />
-    </header>
+        {open && (
+          <div className="border-t border-border bg-background lg:hidden">
+            <nav className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+              {NAV.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-3 text-sm font-medium last:border-0"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="my-3 rounded-sm bg-accent px-4 py-3 text-center text-sm font-semibold text-accent-foreground"
+              >
+                Request a Quote
+              </a>
+              <div className="flex flex-col gap-2 border-t border-border/60 pt-3">
+                <a
+                  href="tel:+218942143587"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 py-2 text-sm font-medium"
+                >
+                  <Phone className="size-4" /> +218 94 214 3587
+                </a>
+                <a
+                  href="https://wa.me/218942143587"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 py-2 text-sm font-medium text-green-600"
+                >
+                  <WhatsAppIcon className="size-4" /> WhatsApp
+                </a>
+              </div>
+            </nav>
+          </div>
+        )}
+        <div className="road-line h-0.5 w-full opacity-70" />
+      </header>
+    </>
   );
 }
 
 function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden bg-navy pt-24">
+    <section id="home" className="relative isolate overflow-hidden bg-navy pt-32">
       <img
         src={heroImg}
         alt="Libyan Road Company distribution warehouse with tires, lubricant drums and a delivery truck"
@@ -501,8 +568,9 @@ function Rfq() {
           />
           <ul className="mt-8 space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "sales@libyanroad.ly" },
-              { icon: MapPin, label: "Warehouse", value: "Benghazi, Libya" },
+              { icon: Mail, label: "Email", value: "info@libyanrc.com", href: "mailto:info@libyanrc.com" },
+              { icon: Phone, label: "Phone", value: "+218 94 214 3587", href: "tel:+218942143587" },
+              { icon: MapPin, label: "Warehouse", value: "Ring Road 6, Benghazi, Libya" },
               { icon: Clock, label: "Hours", value: "Sat–Thu, 08:00 – 18:00" },
             ].map((c) => (
               <li key={c.label} className="flex items-start gap-3">
@@ -511,11 +579,25 @@ function Rfq() {
                   <p className="text-xs tracking-widest text-muted-foreground uppercase">
                     {c.label}
                   </p>
-                  <p className="font-medium break-words">{c.value}</p>
+                  {c.href ? (
+                    <a href={c.href} className="font-medium break-words hover:text-accent">
+                      {c.value}
+                    </a>
+                  ) : (
+                    <p className="font-medium break-words">{c.value}</p>
+                  )}
                 </div>
               </li>
             ))}
           </ul>
+          <a
+            href="https://wa.me/218942143587"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-sm bg-green-600 px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            <WhatsAppIcon className="size-4" /> Chat on WhatsApp
+          </a>
         </div>
 
         <div className="rounded-sm border border-border bg-card p-6 sm:p-8">
@@ -560,7 +642,7 @@ function Rfq() {
                   type="email"
                   required
                   className={field}
-                  placeholder="you@company.ly"
+                  placeholder="you@company.com"
                 />
               </div>
               <div className="sm:col-span-2">
@@ -634,7 +716,7 @@ function Location() {
           </div>
           <div className="absolute bottom-4 left-4 rounded-sm bg-background/95 px-4 py-3 backdrop-blur">
             <p className="font-display text-base font-semibold uppercase">Libyan Road Company</p>
-            <p className="text-xs text-muted-foreground">Benghazi, Libya</p>
+            <p className="text-xs text-muted-foreground">Ring Road 6, Benghazi, Libya</p>
           </div>
         </div>
         <div className="rounded-sm border border-border bg-card p-6 sm:p-8">
@@ -642,7 +724,7 @@ function Location() {
           <dl className="mt-5 space-y-4 text-sm">
             <div>
               <dt className="text-xs tracking-widest text-muted-foreground uppercase">Address</dt>
-              <dd className="mt-1 font-medium">Benghazi, Libya</dd>
+              <dd className="mt-1 font-medium">Ring Road 6, Benghazi, Libya</dd>
             </div>
             <div>
               <dt className="text-xs tracking-widest text-muted-foreground uppercase">
@@ -705,12 +787,27 @@ function Footer() {
           <h3 className="font-display text-sm tracking-widest uppercase">Contact</h3>
           <ul className="mt-4 space-y-2.5 text-sm text-navy-foreground/70">
             <li>
-              <a href="mailto:sales@libyanroad.ly" className="hover:text-accent">
-                sales@libyanroad.ly
+              <a href="mailto:info@libyanrc.com" className="hover:text-accent">
+                info@libyanrc.com
               </a>
             </li>
-            <li>Benghazi, Libya</li>
+            <li>
+              <a href="tel:+218942143587" className="hover:text-accent">
+                +218 94 214 3587
+              </a>
+            </li>
+            <li>Ring Road 6, Benghazi, Libya</li>
             <li>Sat – Thu, 08:00 – 18:00</li>
+            <li>
+              <a
+                href="https://wa.me/218942143587"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-green-400 hover:text-green-300"
+              >
+                <WhatsAppIcon className="size-3.5" /> WhatsApp
+              </a>
+            </li>
           </ul>
         </div>
       </div>
