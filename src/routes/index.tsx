@@ -642,7 +642,7 @@ function Rfq() {
                   type="email"
                   required
                   className={field}
-                  placeholder="you@company.ly"
+                  placeholder="you@company.com"
                 />
               </div>
               <div className="sm:col-span-2">
